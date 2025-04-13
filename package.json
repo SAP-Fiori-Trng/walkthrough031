@@ -1,0 +1,15 @@
+{
+  "name": "dw.ui5.walkthrough.08",
+  "version": "1.0.0",
+  "description": "The first XML View demo",
+  "license": "ISC",
+  "author": "Li Yugang",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "ui5 serve"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.0"
+  }
+}

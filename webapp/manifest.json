@@ -1,0 +1,59 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "dw.ui5.walkthrough.08",
+        "version": "1.0.0",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "minUI5Version": "1.120.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "dw.ui5.walkthrough.08.i18n.i18n",
+                    "supportedLocales": [
+                        ""
+                    ],
+                    "fallbackLocale": ""
+                }
+            },
+            "products": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "mockdata/Products1.json"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "rootView": {
+            "viewName": "dw.ui5.walkthrough.08.view.App",
+            "type": "XML",
+            "id": "app"
+        }
+    }
+}

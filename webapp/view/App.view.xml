@@ -1,0 +1,26 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    controllerName="dw.ui5.walkthrough.08.controller.App">
+    <App>
+        <pages>
+            <Page title="{i18n>pageTitle}">
+                <content>
+                    <mvc:XMLView viewName="dw.ui5.walkthrough.08.view.subview.Panel"/>
+                    <core:Fragment 
+                        fragmentName="dw.ui5.walkthrough.08.fragment.ProductResTable" 
+                        type="XML"/>
+                </content>
+                <footer>
+                    <OverflowToolbar>
+                        <ToolbarSpacer/>
+                        <core:Fragment 
+                            fragmentName="dw.ui5.walkthrough.08.fragment.NewBtn" 
+                            type="XML"/>
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

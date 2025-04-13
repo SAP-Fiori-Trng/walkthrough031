@@ -1,0 +1,103 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core">
+	<Table
+		id="idProductsList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		mode="MultiSelect"
+		selectionChange="onProductsListSelectionChange"
+		items="{products>/Products}">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>productListTitle}" />
+				<ToolbarSpacer />
+				<SearchField
+					width="16%"
+					search=".onFilterProducts"/>
+				<Button icon="sap-icon://activities" enabled="{=${viewModel>/selectedItems}.length > 0}"
+						text="{i18n>reviewItemsBtnTxt}" press="onReviewItemsButtonPress"></Button>
+				<Button icon="sap-icon://request" enabled="{viewModel>/editBtnState}"
+					tooltip="{i18n>editBtnTooltip}" press="onEditButtonPress"></Button>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="15em">
+				<Text text="{i18n>productNameText}" />
+			</Column>
+			<Column
+				hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>productIDText}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>unitPriceText}" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="{i18n>unitsInStockText}" />
+			</Column>
+			<Column hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="false">
+				<Text text="{i18n>quantityPerUnitText}" />
+			</Column>
+			<Column hAlign="Center">
+				<Text text="{i18n>columnStatusText}" />
+			</Column>
+			<Column hAlign="Center">
+				<Text text="{i18n>editItemBtnTxt}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{products>ProductName}" />
+					<Text text="{products>ProductID}" />
+					<ObjectNumber
+						number="{
+							parts:[{path:'products>UnitPrice'}, {path:'products>Unit'}],
+							type:'sap.ui.model.type.Currency',
+							formatOptions:{
+								showMeasure: true,
+								preserveDecimals: false,
+								decimals: 1,
+								groupingSeparator: ',',
+								decimalSeparator: '.'
+							}
+						}"
+						unit="{products>Unit}"
+						state="{=${products>UnitPrice} >= 20 ? 'Success' : 'Error'}"/>
+					<ObjectNumber
+						number="{products>UnitsInStock}"
+						emphasized="false"/>
+					<Text
+						text="{products>QuantityPerUnit}"/>
+					<ObjectStatus
+						text="{
+							path: 'products>Discontinued',
+							formatter: '.formatter.statusText'
+						}"
+						state="{=${products>Discontinued} ? 'Error' : 'Success'}" />
+					<!-- <ObjectStatus
+						c:require = "{
+							Formatter: 'dw/ui5/walkthrough/08/model/Formatter'
+						}"
+						text="{
+							path: 'products>Discontinued',
+							formatter: 'Formatter.statusText.bind($controller)'
+						}"
+						state="{=${products>Discontinued} ? 'Error' : 'Success'}" /> -->
+					<Button icon="sap-icon://write-new-document" type="Accept"
+						press="onRowButtonPress">
+						<customData>
+							<c:CustomData key="flagbind" value="{products>Discontinued}" />
+						</customData>	
+					</Button>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</c:FragmentDefinition>

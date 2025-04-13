@@ -1,0 +1,29 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+    <Dialog
+      id="idhelloDialog"
+      title ="{i18n>helloTxt} {/recipient/name}"
+      afterClose="onDialogAfterClose">
+      <content>
+        <VBox class="sapUiSmallMargin">
+            <Label text="{i18n>fullName}"/>
+            <Input class="sapUiSmallMarginEnd"
+                    value="{/userInfo/fullName}"
+                    valueLiveUpdate="true"
+                    width="100%" />
+        </VBox>
+      </content>
+      <beginButton>
+        <Button type="Accept"
+            text="{i18n>dialogSubmitButtonText}"
+            press="onSubmitButtonPress"/>
+      </beginButton>
+      <endButton>
+         <Button
+            text="{i18n>dialogCloseButtonText}"
+            press="onCloseButtonPress"/>
+      </endButton>
+   </Dialog>
+</c:FragmentDefinition>

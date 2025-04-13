@@ -1,0 +1,18 @@
+.myCustInput 
+.sapMInputDescriptionWrapper 
+.sapMInputDescriptionText {
+    color: brown;
+    font-weight: bolder;
+}
+
+div[data-custfont="green"] 
+.sapMInputDescriptionWrapper 
+.sapMInputDescriptionText {
+    color: green !important;
+}
+
+div[data-custfont="goldenrod"]
+.sapMInputDescriptionWrapper
+.sapMInputDescriptionText {
+    color: goldenrod !important;
+}
